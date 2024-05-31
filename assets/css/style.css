@@ -1,0 +1,764 @@
+/* ======= Police d'écriture ======= */
+
+/* Montserrat */
+@font-face {
+  font-family: "Montserrat", sans-serif;
+  src: url(../police/Montserrat/static/Montserrat-Black.ttf);
+  font-weight: 900;
+}
+@font-face {
+  font-family: "Montserrat", sans-serif;
+  src: url(../police/Montserrat/static/Montserrat-Bold.ttf);
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Montserrat", sans-serif;
+  src: url(../police/Montserrat/static/Montserrat-Regular.ttf);
+  font-weight: 400;
+}
+/* Gilroy */
+@font-face {
+  font-family: "Gilroy", sans-serif;
+  src: url(../police/Gilroy-Light.otf);
+  font-weight: 300;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+:root {
+  /* ======= coleurs ======= */
+  --primar1: #fff128;
+  --primar2: #fff022e1;
+  --secondary: #1b1b1b;
+  --black: #111;
+  --white: #f6f6f6;
+  --text-description-color: #e0e0e0;
+
+  /* ======== Font Family ======== */
+  --montserrat: "Montserrat", sans-serif;
+  --gilroy: "Gilroy", sans-serif;
+}
+/* ======= Scroll-bar custum ======= */
+::-webkit-scrollbar {
+  background: var(--secondary);
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primar1);
+  border-radius: 2px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--black);
+  overflow-x: hidden;
+}
+
+.yello {
+  color: var(--primar1);
+}
+section {
+  padding: 135px 40px 40px;
+  height: 100vh;
+}
+
+/* ======= Début du header ======= */
+header {
+  z-index: 5;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.3s ease;
+}
+header.sticky {
+  position: fixed;
+  background: var(--secondary);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.7s ease forwards;
+}
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1% 6%;
+}
+
+.navbar .logo a {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  font-size: clamp(24px, 2.8vw, 29px);
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  color: var(--primar1);
+  text-transform: uppercase;
+}
+.navbar .nav-right {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+.navbar .nav-links {
+  display: inline-flex;
+  gap: 30px;
+  list-style: none;
+}
+.navbar .nav-links li a {
+  text-decoration: none;
+  color: var(--white);
+  font-size: 17px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px;
+  transition: color 0.2s ease;
+}
+.navbar .nav-links li a:hover {
+  color: var(--primar2);
+}
+
+.details-info {
+  border-radius: 8px;
+  border: 1px solid var(--primar1);
+  padding: 7px 14px;
+  max-width: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.details-info i {
+  color: var(--primar1);
+  font-size: 17px;
+  margin-right: 5px;
+}
+.details-info a {
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: var(--primar1);
+  font-size: 17px;
+}
+
+/* ======= Début du style de l'icône hamburger ======= */
+.BtnToggleNav {
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  position: relative;
+  display: none;
+}
+.navbar.active .BtnToggleNav span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+  transition: all 0.3s ease-in-out;
+}
+.navbar.active .BtnToggleNav span:nth-child(2) {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.navbar.active .BtnToggleNav span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+  transition: all 0.3s ease-in-out;
+}
+.BtnToggleNav span {
+  width: 100%;
+  height: 2px;
+  background: var(--primar1);
+  display: block;
+  position: absolute;
+  border-radius: 7px;
+  transition: all 0.3s ease-in-out;
+}
+.BtnToggleNav span:nth-child(1) {
+  top: 0;
+}
+.BtnToggleNav span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+  transition-delay: 0.1s;
+}
+.BtnToggleNav span:nth-child(3) {
+  bottom: 0;
+}
+/* ======= Fin du style de l'icône hamburger ======= */
+
+/* ======= Fin du header ======= */
+.banner {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url("../image/fitzone-background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  padding: 0 3%;
+  position: relative;
+}
+.banner-container {
+  width: 100%;
+  padding: 0 3%;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.banner-container h2 {
+  color: var(--white);
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(35px, 4vw, 55px);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.banner-container h3 {
+  color: var(--white);
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(15px, 1.6vw,17px);
+  font-weight: 400;
+}
+
+button.cta,
+.btn-form {
+  background: var(--primar1);
+  color: var(--black);
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  padding: 8px 20px;
+  font-size: clamp(14px, 1.6vw, 18px);
+  font-family: var(--montserrat);
+  font-weight: 700;
+  margin-top: 20px;
+  will-change: transform;
+}
+button.cta:hover,
+.btn-form:hover,
+.sign-up-form form button:hover {
+  transform: scale(0.96);
+}
+
+section > .title h2 {
+  font-size: clamp(22px, 3.3vw, 35px);
+  font-family: var(--montserrat);
+  font-weight: 700;
+  color: var(--white);
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+/* ======= Swiper js (Carousel) ======== */
+.contains-swiper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.swiper {
+  width: calc(100% - 10%);
+  position: initial !important;
+}
+.swiper-inner {
+  width: 100%;
+  height: 400px;
+  margin: 0 auto;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  cursor: grab;
+  text-align: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.swiper-inner h4,
+.swiper-inner i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--primar1);
+}
+.swiper-inner.cardio {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url(../image/classe-cardio.jpg);
+}
+.swiper-inner.musculation {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url(../image/classe-musculation.jpg);
+}
+.swiper-inner.yoga {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url(../image/classe-yoga.jpg);
+}
+.swiper-inner.zumba {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url(../image/classe-zumba.jpg);
+}
+.swiper-inner.etirement {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url(../image/classe-étirement.jpg);
+}
+.swiper-inner.cyclisme {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url(../image/classe-cyclisme.jpg);
+}
+.swiper-inner h4 {
+  font-size: clamp(17px, 2.2vw, 24px);
+  font-family: var(--montserrat);
+  font-weight: 700;
+  margin-top: 50px;
+}
+.swiper-inner i {
+  font-size: clamp(35px, 4.4vw, 45px);
+}
+.pagination div[class^="swiper-button"]::after {
+  display: none;
+}
+.pagination div[class^="swiper-button"] i {
+  color: var(--primar1);
+  font-size: clamp(14px, 2vw, 22px);
+}
+
+/* ======= Dédut du style section à propos ======== */
+.about-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1110px;
+  margin: 0 auto;
+}
+.about-description,
+.about-image-box,
+.container-description,
+.coachs-image-box,
+.container-left,
+.container-right {
+  width: 50%;
+}
+.about-description h2,
+.cta-description h2 {
+  color: var(--white);
+  font-size: clamp(22px, 3.3vw, 35px);
+  font-family: var(--montserrat);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.about-description p,
+.cta-description p {
+  color: var(--text-description-color);
+  font-size: clamp(16px, 1.6vw, 19px);
+  font-family: var(--gilroy);
+  font-weight: 300;
+  width: 97%;
+  line-height: 24px;
+}
+.about-description .open-day {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+.about-description .open-day i {
+  color: var(--primar2);
+  font-size: clamp(22px, 3vw,30px);
+}
+.open-day .days span {
+  display: block;
+  color: var(--white);
+  font-family: var(--gilroy);
+  font-size: clamp(14px, 1.6vw, 17px);
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.about-image-box img {
+  width: 90%;
+}
+/* ======= Fin du style section à propos ======== */
+
+/* ======= Début de section à Cta(call to action) ======== */
+section.cta {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url("../image/cta-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 0 !important;
+  position: relative;
+}
+.cta-container {
+  max-width: 1110px;
+  min-height: 450px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.cta-container img {
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  left: 10%;
+}
+.cta-description {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+.cta-container .cta {
+  max-width: 300px;
+}
+/* ======= Fin de section à Cta(call to action) ======== */
+
+/* ======= Début de section coachs personnels ======== */
+.personnals-coachs-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap-reverse;
+  max-width: 1110px;
+  margin: 0 auto;
+}
+.container-description span {
+  display: block;
+  text-transform: uppercase;
+}
+.container-description span:nth-child(1) {
+  font-size: clamp(13px, 1.7vw, 19px);
+  font-family: var(--gilroy);
+  font-weight: 300;
+  color: var(--text-description-color);
+}
+.container-description span:nth-child(2) {
+  font-size: clamp(35px, 6.5vw, 65px);
+  font-family: var(--montserrat);
+  font-weight: 900;
+  color: var(--white);
+}
+.container-description span:nth-child(3) {
+  font-size: clamp(13px, 1.7vw, 17px);
+  font-family: var(--montserrat);
+  font-weight: 400;
+  color: var(--primar1);
+}
+.coachs-image-box img {
+  width: 100%;
+  height: auto;
+}
+/* ======= Fin de section coachs personnels ======== */
+
+/* ======= Formulaire d'inscription ======== */
+.sign-up-form {
+  position: fixed;
+  z-index: 10;
+  top: 13%;
+  right: 1%;
+  border: 1px solid #fff02288;
+  border-radius: 7px;
+  padding: 30px;
+  background: rgba(0, 0, 0,.70);
+  backdrop-filter: blur(7px);
+  transform: translateX(120%);
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+.sign-up-form.active {
+  transform: translateX(0);
+  visibility: visible;
+  opacity: 1;
+  pointer-events: all;
+}
+.sign-up-form form {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.sign-up-form form input{
+  width: 96%;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid var(--white);
+  background: none;
+  padding: 2px 4px;
+  font-size: clamp(14px, 1.7vw, 17px);
+  font-family: var(--gilroy);
+  color: var(--text-description-color);
+}
+.sign-up-form form button {
+ background: var(--primar1);
+  color: var(--black);
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  padding: 8px 20px;
+  font-size: clamp(14px, 1.6vw, 18px);
+  font-family: var(--montserrat);
+  font-weight: 700;
+  will-change: transform;
+}
+.sign-up-form form i {
+  position: absolute;
+  top: -29%;
+  right: -14%;
+  color: var(--secondary);
+  z-index: 2;
+  cursor: pointer;
+}
+.sign-up-form form i::after {
+  content: '';
+  z-index: -1;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--primar1);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ======= Début de la section contact ======== */
+section.contact {
+  background-image: linear-gradient(
+      45deg,
+      rgba(0, 0, 0, 0.9),
+      rgba(0, 0, 0, 0.9)
+    ),
+    url(../image/fitzone-bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1110px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+.container-left {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 25px;
+  min-height: 245px;
+  border: 2px solid var(--primar1);
+  transform: translateX(4%);
+  position: relative;
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7px);
+}
+.container-left h2 {
+  font-size: clamp(25px, 3.5vw, 35px);
+  font-family: var(--montserrat);
+  font-weight: 700;
+  color: var(--white);
+}
+.container-left .socials-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.container-left .socials-links i {
+  color: var(--text-description-color);
+  font-size: clamp(14px, 1.7vw, 17px);
+  cursor: pointer;
+  will-change: transform;
+}
+.container-left .socials-links i:hover {
+  color: var(--primar2);
+  transform: scale(1.2);
+}
+.container-right {
+  position: relative;
+}
+.container-right .contact-form {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  background: var(--secondary);
+  border-radius: 5px;
+}
+.container-right .contact-form input,
+.container-right .contact-form textarea {
+  width: 96%;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid var(--white);
+  background: none;
+  margin-bottom: 15px;
+  padding: 5px 10px;
+  font-size: clamp(14px, 1.7vw, 17px);
+  font-family: var(--gilroy);
+  color: var(--text-description-color);
+  resize: none;
+}
+.container-right .contact-form .btn-form {
+  margin-bottom: 20px;
+  width: 96%;
+}
+/* ======= Fin de la section contact ======== */
+
+/* ======= Footer ======== */
+footer {
+  background: var(--primar1);
+}
+.copyright {
+  text-align: center;
+  padding: 15px 0;
+}
+.copyright p {
+  color: var(--black);
+  font-family: var(--montserrat);
+  font-weight: 400;
+  font-size: clamp(12px, 1.6vw, 16px);
+}
+.copyright span a {
+  text-decoration: none;
+  color: var(--black);
+  font-weight: 700;
+}
+/* ======= Responsive ======== */
+@media (max-width: 1110px) {
+  .cta-container img {
+    left: 3%;
+  }
+}
+@media (max-width: 1020px) {
+  body.disabledScroll {
+    overflow: hidden;
+  }
+  section {
+    padding: 60px 30px;
+  }
+  .navbar .nav-right {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-100%);
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    background: var(--secondary);
+    visibility: hidden;
+    opacity: 0;
+  }
+  .navbar.active .nav-right {
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+  }
+  .navbar .nav-links {
+    flex-direction: column;
+    align-items: center;
+  }
+  .BtnToggleNav {
+    display: block;
+  }
+}
+@media (max-width: 930px) {
+  .cta-container {
+    justify-content: center;
+  }
+  .cta-container img {
+    display: none;
+  }
+  .cta-description {
+    width: 96%;
+  }
+}
+@media (max-width: 800px) {
+  .navbar {
+    padding: 3% 6%;
+  }
+  .about-container,
+  .personnals-coachs-container {
+    max-width: 500px;
+    gap: 30px;
+  }
+  .about-description,
+  .about-image-box,
+  .container-description,
+  .coachs-image-box,
+  .container-right {
+    width: 100%;
+  }
+  .container-left {
+    transform: translateX(0) translateY(4%);
+    width: 90%;
+  }
+}
+@media (max-width: 500px) {
+  section {
+    padding: 60px 23px;
+  }
+  .BtnToggleNav {
+    width: 25px;
+    height: 17px;
+  }
+  .navbar.active .BtnToggleNav span:nth-child(1) {
+    transform: translateY(14px) rotate(135deg);
+  }
+  .navbar.active .BtnToggleNav span:nth-child(3) {
+    transform: translateY(-1px) rotate(45deg);
+  }
+}
